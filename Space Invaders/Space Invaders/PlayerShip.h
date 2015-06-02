@@ -7,6 +7,7 @@
 //
 
 #include "LTexture.h"
+//#include "GameManager.h"
 
 #ifndef Space_Invaders_PlayerShip_h
 #define Space_Invaders_PlayerShip_h
@@ -15,9 +16,18 @@ class PlayerShip
 {
 public:
     PlayerShip();
+    PlayerShip(LTexture* shipTexture);
     ~PlayerShip();
+    
+    void setTexture (LTexture* shipTexture);
+    void handleEvent( SDL_Event& e );
+    void move();
+    void render();
 private:
     int lives = 3;
+    int mPosX, mPosY;
+    int mVelX;
+    const int velocity = 10;
     LTexture* texture;
 };
 

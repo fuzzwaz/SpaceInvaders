@@ -11,11 +11,10 @@
 
 LTexture::LTexture(SDL_Renderer* mainRend)
 {
-    //Initialize
     mTexture = NULL;
     mWidth = 0;
     mHeight = 0;
-    gRenderer = mainRend;
+    setRenderer(mainRend);
 }
 
 LTexture::~LTexture()
