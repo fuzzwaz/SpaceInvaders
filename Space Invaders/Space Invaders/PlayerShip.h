@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Ramy Fawaz. All rights reserved.
 //
 
+
 #include "LTexture.h"
-//#include "GameManager.h"
+
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
 #ifndef Space_Invaders_PlayerShip_h
 #define Space_Invaders_PlayerShip_h

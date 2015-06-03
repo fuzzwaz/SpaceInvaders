@@ -2,29 +2,34 @@
 //  GameManager.h
 //  Space Invaders
 //
-//  Created by Ramy Fawaz on 5/18/15.
+//  Created by Ramy Fawaz on 6/2/15.
 //  Copyright (c) 2015 Ramy Fawaz. All rights reserved.
 //
 
-#ifndef __Space_Invaders__GameManager__
-#define __Space_Invaders__GameManager__
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <stdio.h>
-#include <string>
-#include <cmath>
-#include <vector>
+#include "PlayerShip.h"
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+#ifndef Space_Invaders_GameManager_h
+#define Space_Invaders_GameManager_h
 
 class GameManager
 {
 public:
     GameManager();
-
-private:
     
+    bool init();
+    bool loadMedia();
+    
+    void handleEvent(SDL_Event e);
+    void updatePosition();
+    void renderObjects();
+    void clearScreen();
+    void updateScreen();
+    void close();
+    
+private:
+    SDL_Window* gWindow = NULL;         //Main Window
+    SDL_Renderer* gRenderer = NULL;     //Window Renderer
+    LTexture* shipTexture;  //Scene texture
+    PlayerShip mainShip;
 };
-
-#endif /* defined(__Space_Invaders__GameManager__) */
+#endif

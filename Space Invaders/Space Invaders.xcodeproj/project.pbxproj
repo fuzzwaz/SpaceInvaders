@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48A334161B1EA41C00C5B273 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48A334151B1EA41C00C5B273 /* GameManager.cpp */; };
 		48D7EA7D1B0956070041CA3E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA7C1B0956070041CA3E /* main.cpp */; };
 		48D7EA841B0958BB0041CA3E /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D7EA831B0958BB0041CA3E /* SDL2_image.framework */; };
 		48D7EA861B0958F20041CA3E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D7EA851B0958F20041CA3E /* SDL2.framework */; };
 		48D7EA891B096E6B0041CA3E /* PlayerShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA881B096E6B0041CA3E /* PlayerShip.cpp */; };
 		48D7EA8C1B0971F70041CA3E /* LTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA8B1B0971F70041CA3E /* LTexture.cpp */; };
-		48D7EA8F1B0ADCB40041CA3E /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA8D1B0ADCB40041CA3E /* GameManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		48A334121B1EA3CE00C5B273 /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		48A334151B1EA41C00C5B273 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		48D7EA791B0956070041CA3E /* Space Invaders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Space Invaders"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D7EA7C1B0956070041CA3E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		48D7EA831B0958BB0041CA3E /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
@@ -36,8 +38,6 @@
 		48D7EA881B096E6B0041CA3E /* PlayerShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerShip.cpp; sourceTree = "<group>"; };
 		48D7EA8A1B0971B10041CA3E /* LTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTexture.h; sourceTree = "<group>"; };
 		48D7EA8B1B0971F70041CA3E /* LTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTexture.cpp; sourceTree = "<group>"; };
-		48D7EA8D1B0ADCB40041CA3E /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
-		48D7EA8E1B0ADCB40041CA3E /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 				48D7EA881B096E6B0041CA3E /* PlayerShip.cpp */,
 				48D7EA8A1B0971B10041CA3E /* LTexture.h */,
 				48D7EA8B1B0971F70041CA3E /* LTexture.cpp */,
-				48D7EA8D1B0ADCB40041CA3E /* GameManager.cpp */,
-				48D7EA8E1B0ADCB40041CA3E /* GameManager.h */,
+				48A334121B1EA3CE00C5B273 /* GameManager.h */,
+				48A334151B1EA41C00C5B273 /* GameManager.cpp */,
 			);
 			path = "Space Invaders";
 			sourceTree = "<group>";
@@ -142,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D7EA891B096E6B0041CA3E /* PlayerShip.cpp in Sources */,
-				48D7EA8F1B0ADCB40041CA3E /* GameManager.cpp in Sources */,
+				48A334161B1EA41C00C5B273 /* GameManager.cpp in Sources */,
 				48D7EA7D1B0956070041CA3E /* main.cpp in Sources */,
 				48D7EA8C1B0971F70041CA3E /* LTexture.cpp in Sources */,
 			);
@@ -269,6 +269,7 @@
 				48D7EA821B0956070041CA3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

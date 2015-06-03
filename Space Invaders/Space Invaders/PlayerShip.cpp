@@ -38,6 +38,8 @@ void PlayerShip::handleEvent(SDL_Event& e)
         {
             case SDLK_LEFT: mVelX -= velocity; break;
             case SDLK_RIGHT: mVelX += velocity; break;
+            case SDLK_a: mVelX -= velocity; break;
+            case SDLK_d: mVelX += velocity; break;
         }
     }
     //If a key was released
@@ -48,6 +50,8 @@ void PlayerShip::handleEvent(SDL_Event& e)
         {
             case SDLK_LEFT: mVelX += velocity; break;
             case SDLK_RIGHT: mVelX -= velocity; break;
+            case SDLK_a: mVelX += velocity; break;
+            case SDLK_d: mVelX -= velocity; break;
         }
     }
 }

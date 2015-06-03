@@ -6,10 +6,17 @@
 //  Copyright (c) 2015 Ramy Fawaz. All rights reserved.
 //
 
+#include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
+#include <stdio.h>
+#include <string>
+#include <cmath>
+#include <vector>
+
 #ifndef Space_Invaders_LTexture_h
 #define Space_Invaders_LTexture_h
 
-#include "GameManager.h"
+
 
 class LTexture
 {
