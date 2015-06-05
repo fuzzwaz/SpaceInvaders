@@ -22,7 +22,7 @@ class LTexture
 {
 public:
     //Initializes variables
-    LTexture(SDL_Renderer* mainRend);
+    LTexture();
     
     //Deallocates memory
     ~LTexture();

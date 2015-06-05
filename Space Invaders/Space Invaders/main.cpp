@@ -26,32 +26,28 @@ int main( int argc, char* args[] )
     {printf( "Initialization did not work properly\n" );}
     else
     {
-        if( !mainGame.loadMedia() )
-        {printf( "Failed to load media!\n" );}
-        else
-        {
-            bool quit = false;
-            SDL_Event e;
+        bool quit = false;
+        SDL_Event e;
             
-            while( !quit )
+        while( !quit )
+        {
+            while( SDL_PollEvent( &e ) != 0 )
             {
-                while( SDL_PollEvent( &e ) != 0 )
-                {
-                    if( e.type == SDL_QUIT )
-                    {quit = true;}
+                if( e.type == SDL_QUIT )
+                {quit = true;}
                     
-                    mainGame.handleEvent(e);
-                }
-                
-                mainGame.updatePosition();
-
-                mainGame.clearScreen();
-                
-                mainGame.renderObjects();
-                
-                mainGame.updateScreen();
+                mainGame.handleEvent(e);
             }
+                
+            mainGame.updatePosition();
+
+            mainGame.clearScreen();
+                
+            mainGame.renderObjects();
+                
+            mainGame.updateScreen();
         }
+        
     }
     mainGame.close();
     

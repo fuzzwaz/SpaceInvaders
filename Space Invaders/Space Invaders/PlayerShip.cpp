@@ -23,6 +23,12 @@ PlayerShip::PlayerShip(LTexture* shipTexture)
     setTexture(shipTexture);
 }
 
+void PlayerShip::setPos(int xPos, int yPos)
+{
+    mPosX = xPos;
+    mPosY = yPos;
+}
+
 void PlayerShip::setTexture(LTexture *shipTexture)
 {
     texture = shipTexture;
@@ -72,6 +78,8 @@ void PlayerShip::render()
     
     texture->render(mPosX, mPosY,test_Rectangle);
 }
+
+
 
 PlayerShip::~PlayerShip()
 {
