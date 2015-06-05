@@ -9,12 +9,12 @@
 #include "LTexture.h"
 
 
-LTexture::LTexture(SDL_Renderer* mainRend)
+LTexture::LTexture()
 {
     mTexture = NULL;
     mWidth = 0;
     mHeight = 0;
-    setRenderer(mainRend);
+    //setRenderer(mainRend);
 }
 
 LTexture::~LTexture()

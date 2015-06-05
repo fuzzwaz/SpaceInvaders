@@ -11,8 +11,16 @@
 
 GameManager::GameManager()
 {
-    shipTexture = new LTexture(gRenderer);
-    mainShip.setTexture(shipTexture);
+    mainShip.setTexture(&shipTexture);
+    
+    for (int i = 0; i < 22; i++) {
+        bEnemy[i].setTexture(&enemyTexture);
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        blocks[i].setTexture(&blockTexture);
+    }
+    
 }
 
 bool GameManager::init()
@@ -62,9 +70,20 @@ bool GameManager::init()
                     success = false;
                 }
                 
-                shipTexture->setRenderer(gRenderer);
+                shipTexture.setRenderer(gRenderer);
+                enemyTexture.setRenderer(gRenderer);
+                blockTexture.setRenderer(gRenderer);
             }
         }
+    }
+    
+    if (success) {
+        if (loadMedia())
+        {
+            loadLevelOne();
+            return true;
+        }
+        
     }
     
     return success;
@@ -75,12 +94,24 @@ bool GameManager::loadMedia()
     //Loading success flag
     bool success = true;
     
-    //Load arrow
-    if( !shipTexture->loadFromFile( "player/Player_Ship.png" ) )
+    if( !shipTexture.loadFromFile( "player/Player_Ship.png" ) )
     {
-        printf( "Failed to load arrow texture!\n" );
+        printf( "Failed to load ship texture!\n" );
         success = false;
     }
+    
+    if( !enemyTexture.loadFromFile( "enemy/Basic_Enemy.png" ) )
+    {
+        printf( "Failed to load basic enemy texture!\n" );
+        success = false;
+    }
+    
+    if( !blockTexture.loadFromFile( "environment/Block.png" ) )
+    {
+        printf( "Failed to load block texture!\n" );
+        success = false;
+    }
+    
     return success;
     
 }
@@ -98,6 +129,13 @@ void GameManager::updatePosition()
 void GameManager::renderObjects()
 {
     mainShip.render();
+    for (int i = 0; i < 22; i++) {
+        bEnemy[i].render();
+    }
+    for (int i = 0; i < 4; i++) {
+        blocks[i].render();
+    }
+    
 }
 
 void GameManager::clearScreen()
@@ -111,10 +149,35 @@ void GameManager::updateScreen()
     SDL_RenderPresent( gRenderer );
 }
 
+void GameManager::loadLevelOne()
+{
+    //Setup main player
+    mainShip.setPos(SCREEN_WIDTH/2 - 40, SCREEN_HEIGHT - 50);
+    
+    //Set up enemies
+    //------Basic Enemies----
+    
+    for (int i = 0; i < 11; i++) {
+        bEnemy[i].setPos(150 + (i * 64), 450);
+    }
+    
+    for (int i = 0; i < 11; i++) {
+        bEnemy[11 + i].setPos(150 + (i * 64), 393);
+    }
+    
+    //Set up environment
+    int blockInitPos = SCREEN_WIDTH/2 - 185;
+    int blockDiff = 225;
+    blocks[0].setPos(blockInitPos, SCREEN_HEIGHT - 200);
+    blocks[2].setPos(blockInitPos - blockDiff, SCREEN_HEIGHT - 200);
+    blocks[1].setPos(blockInitPos + blockDiff, SCREEN_HEIGHT - 200);
+    blocks[3].setPos(blockInitPos + blockDiff*2, SCREEN_HEIGHT - 200);
+}
+
 void GameManager::close()
 {
     //Free loaded images
-    shipTexture->free();
+    shipTexture.free();
     
     //Destroy window
     SDL_DestroyRenderer( gRenderer );

@@ -9,8 +9,8 @@
 
 #include "LTexture.h"
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1000;
+const int SCREEN_HEIGHT = 750;
 
 #ifndef Space_Invaders_PlayerShip_h
 #define Space_Invaders_PlayerShip_h
@@ -24,6 +24,7 @@ public:
     
     void setTexture (LTexture* shipTexture);
     void handleEvent( SDL_Event& e );
+    void setPos(int xPos, int yPos);
     void move();
     void render();
 private:
