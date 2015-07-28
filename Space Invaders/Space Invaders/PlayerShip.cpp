@@ -7,12 +7,15 @@
 //
 
 #include "PlayerShip.h"
+#include "GameManager.h"
 
 PlayerShip::PlayerShip()
 {
     mPosX = SCREEN_WIDTH/2 - 40;
     mPosY = SCREEN_HEIGHT - SCREEN_HEIGHT/4;
     mVelX = 0;
+    
+    setGameManager(GameManager::getGameManager());
 }
 
 PlayerShip::PlayerShip(LTexture* shipTexture)
@@ -79,7 +82,15 @@ void PlayerShip::render()
     texture->render(mPosX, mPosY,test_Rectangle);
 }
 
+void PlayerShip::setGameManager(GameManager* thisGM)
+{
+    gameManager = thisGM;
+}
 
+GameManager* PlayerShip::getGameManager()
+{
+    return gameManager;
+}
 
 PlayerShip::~PlayerShip()
 {

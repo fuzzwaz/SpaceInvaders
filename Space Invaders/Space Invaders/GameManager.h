@@ -6,17 +6,16 @@
 //  Copyright (c) 2015 Ramy Fawaz. All rights reserved.
 //
 
+#ifndef Space_Invaders_GameManager_h
+#define Space_Invaders_GameManager_h
+
 #include "PlayerShip.h"
 #include "BasicEnemy.h"
 #include "Block.h"
 
-#ifndef Space_Invaders_GameManager_h
-#define Space_Invaders_GameManager_h
-
 class GameManager
 {
 public:
-    GameManager();
     
     bool init();
     bool loadMedia();
@@ -29,14 +28,23 @@ public:
     void updateScreen();
     void close();
     
+    SDL_Renderer* getRenderer();
+    static GameManager* getGameManager();
+    
 private:
+    
+    GameManager();
+    
     SDL_Window* gWindow = NULL;         //Main Window
     SDL_Renderer* gRenderer = NULL;     //Window Renderer
-    LTexture shipTexture;  //Scene texture
+    LTexture shipTexture;               //Scene texture
     LTexture enemyTexture;
     LTexture blockTexture;
-    PlayerShip mainShip;
+    PlayerShip* mainShip;
     Block blocks[4];
     BasicEnemy bEnemy[22];
+    
+    static GameManager* gameManager;
+
 };
 #endif

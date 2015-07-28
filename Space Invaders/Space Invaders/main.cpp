@@ -16,13 +16,16 @@ bool loadMedia();                   //Loads media
 
 void close();                       //Frees media and shuts down SDL
 
-
-GameManager mainGame;
+//GlobalManager* GlobalManager::globalManager = nullptr;
+GameManager* GameManager::gameManager = nullptr;
+GameManager* mainGame;
 
 
 int main( int argc, char* args[] )
 {
-    if( !mainGame.init() )
+    mainGame = GameManager::getGameManager();
+    
+    if( !mainGame->init() )
     {printf( "Initialization did not work properly\n" );}
     else
     {
@@ -36,20 +39,20 @@ int main( int argc, char* args[] )
                 if( e.type == SDL_QUIT )
                 {quit = true;}
                     
-                mainGame.handleEvent(e);
+                mainGame->handleEvent(e);
             }
                 
-            mainGame.updatePosition();
+            mainGame->updatePosition();
 
-            mainGame.clearScreen();
+            mainGame->clearScreen();
                 
-            mainGame.renderObjects();
+            mainGame->renderObjects();
                 
-            mainGame.updateScreen();
+            mainGame->updateScreen();
         }
         
     }
-    mainGame.close();
+    mainGame->close();
     
     return 0;
 }

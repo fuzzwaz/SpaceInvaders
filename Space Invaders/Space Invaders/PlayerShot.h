@@ -9,6 +9,18 @@
 #ifndef __Space_Invaders__PlayerShot__
 #define __Space_Invaders__PlayerShot__
 
-#include <stdio.h>
+#include "LTexture.h"
+
+class PlayerShot
+{
+public:
+    PlayerShot();
+//    void setTexture (LTexture* shotTexture);
+//    void setPos(int xPosition, int yPosition);
+//    void render();
+//protected:
+//    LTexture* texture;
+//    int xPos, yPos;
+};
 
 #endif /* defined(__Space_Invaders__PlayerShot__) */

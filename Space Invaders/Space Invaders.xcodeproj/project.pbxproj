@@ -16,6 +16,7 @@
 		48D7EA861B0958F20041CA3E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D7EA851B0958F20041CA3E /* SDL2.framework */; };
 		48D7EA891B096E6B0041CA3E /* PlayerShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA881B096E6B0041CA3E /* PlayerShip.cpp */; };
 		48D7EA8C1B0971F70041CA3E /* LTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA8B1B0971F70041CA3E /* LTexture.cpp */; };
+		48E5463C1B63126500B6C863 /* PlayerShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48E5463A1B63126500B6C863 /* PlayerShot.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		48D7EA881B096E6B0041CA3E /* PlayerShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerShip.cpp; sourceTree = "<group>"; };
 		48D7EA8A1B0971B10041CA3E /* LTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTexture.h; sourceTree = "<group>"; };
 		48D7EA8B1B0971F70041CA3E /* LTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTexture.cpp; sourceTree = "<group>"; };
+		48E5463A1B63126500B6C863 /* PlayerShot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerShot.cpp; sourceTree = "<group>"; };
+		48E5463B1B63126500B6C863 /* PlayerShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerShot.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				48A3341B1B1EB24400C5B273 /* BasicEnemy.h */,
 				48A334201B2148B900C5B273 /* Block.cpp */,
 				48A334211B2148B900C5B273 /* Block.h */,
+				48E5463A1B63126500B6C863 /* PlayerShot.cpp */,
+				48E5463B1B63126500B6C863 /* PlayerShot.h */,
 			);
 			path = "Space Invaders";
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			files = (
 				48D7EA891B096E6B0041CA3E /* PlayerShip.cpp in Sources */,
 				48A334221B2148B900C5B273 /* Block.cpp in Sources */,
+				48E5463C1B63126500B6C863 /* PlayerShot.cpp in Sources */,
 				48A334161B1EA41C00C5B273 /* GameManager.cpp in Sources */,
 				48A334191B1EB1B500C5B273 /* Enemy.cpp in Sources */,
 				48D7EA7D1B0956070041CA3E /* main.cpp in Sources */,

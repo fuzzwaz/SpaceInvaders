@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Ramy Fawaz. All rights reserved.
 //
 
-#include "Enemy.h"
-
 #ifndef __Space_Invaders__BasicEnemy__
 #define __Space_Invaders__BasicEnemy__
+
+#include "Enemy.h"
 
 class BasicEnemy : public Enemy
 {

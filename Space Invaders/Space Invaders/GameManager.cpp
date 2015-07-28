@@ -11,7 +11,7 @@
 
 GameManager::GameManager()
 {
-    mainShip.setTexture(&shipTexture);
+    
     
     for (int i = 0; i < 22; i++) {
         bEnemy[i].setTexture(&enemyTexture);
@@ -21,12 +21,21 @@ GameManager::GameManager()
         blocks[i].setTexture(&blockTexture);
     }
     
+    
 }
 
 bool GameManager::init()
 {
     //Initialization flag
     bool success = true;
+    
+    //Initialize objects in order
+    mainShip = new PlayerShip();
+    
+    
+    //Set Textures
+    mainShip->setTexture(&shipTexture);
+    
     
     //Initialize SDL
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -118,17 +127,17 @@ bool GameManager::loadMedia()
 
 void GameManager::handleEvent(SDL_Event e)
 {
-    mainShip.handleEvent(e);
+    mainShip->handleEvent(e);
 }
 
 void GameManager::updatePosition()
 {
-    mainShip.move();
+    mainShip->move();
 }
 
 void GameManager::renderObjects()
 {
-    mainShip.render();
+    mainShip->render();
     for (int i = 0; i < 22; i++) {
         bEnemy[i].render();
     }
@@ -152,7 +161,7 @@ void GameManager::updateScreen()
 void GameManager::loadLevelOne()
 {
     //Setup main player
-    mainShip.setPos(SCREEN_WIDTH/2 - 40, SCREEN_HEIGHT - 50);
+    mainShip->setPos(SCREEN_WIDTH/2 - 40, SCREEN_HEIGHT - 50);
     
     //Set up enemies
     //------Basic Enemies----
@@ -188,4 +197,17 @@ void GameManager::close()
     //Quit SDL subsystems
     IMG_Quit();
     SDL_Quit();
+}
+
+SDL_Renderer* GameManager::getRenderer()
+{
+    return gRenderer;
+}
+
+GameManager* GameManager::getGameManager()
+{
+    if (gameManager == nullptr) {
+        gameManager = new GameManager();
+    }
+    return gameManager;
 }
