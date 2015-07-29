@@ -10,17 +10,23 @@
 #define __Space_Invaders__PlayerShot__
 
 #include "LTexture.h"
+#include "LTimer.h"
 
 class PlayerShot
 {
 public:
     PlayerShot();
-//    void setTexture (LTexture* shotTexture);
-//    void setPos(int xPosition, int yPosition);
-//    void render();
-//protected:
-//    LTexture* texture;
-//    int xPos, yPos;
+    void setTexture (LTexture* shotTexture);
+    void setPos(int xPosition, int yPosition);
+    void render();
+    
+    int getXPost();
+    int getYPos();
+    float getTime();
+protected:
+    LTexture* texture;
+    LTimer lifeTime;
+    int xPos, yPos;
 };
 
 #endif /* defined(__Space_Invaders__PlayerShot__) */
