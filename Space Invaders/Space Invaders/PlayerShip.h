@@ -10,9 +10,10 @@
 #define Space_Invaders_PlayerShip_h
 
 #include "LTexture.h"
-#include "PlayerShot.h"
+#include "vector"
 
 class GameManager;
+class PlayerShot;
 
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 750;
@@ -30,16 +31,27 @@ public:
     void move();
     void render();
     
+    void renderObjects();
+    
     void setGameManager(GameManager*);
     GameManager* getGameManager();
+    
+    int getWidth();
+    int getHeight();
 private:
+    void shoot();
+    
     int lives = 3;
+    int shipWidth = 80;
+    int shipHeight = 40;
     int mPosX, mPosY;
     int mVelX;
     const int velocity = 10;
     LTexture* texture;
     
     GameManager* gameManager;
+    
+    std::vector<PlayerShot*> shots;
 };
 
 #endif

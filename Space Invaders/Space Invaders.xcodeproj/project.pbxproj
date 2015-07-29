@@ -17,6 +17,7 @@
 		48D7EA891B096E6B0041CA3E /* PlayerShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA881B096E6B0041CA3E /* PlayerShip.cpp */; };
 		48D7EA8C1B0971F70041CA3E /* LTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48D7EA8B1B0971F70041CA3E /* LTexture.cpp */; };
 		48E5463C1B63126500B6C863 /* PlayerShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48E5463A1B63126500B6C863 /* PlayerShot.cpp */; };
+		48E546421B684EC700B6C863 /* LTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48E546401B684EC700B6C863 /* LTimer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,8 @@
 		48D7EA8B1B0971F70041CA3E /* LTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTexture.cpp; sourceTree = "<group>"; };
 		48E5463A1B63126500B6C863 /* PlayerShot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerShot.cpp; sourceTree = "<group>"; };
 		48E5463B1B63126500B6C863 /* PlayerShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerShot.h; sourceTree = "<group>"; };
+		48E546401B684EC700B6C863 /* LTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTimer.cpp; sourceTree = "<group>"; };
+		48E546411B684EC700B6C863 /* LTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTimer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				48A334211B2148B900C5B273 /* Block.h */,
 				48E5463A1B63126500B6C863 /* PlayerShot.cpp */,
 				48E5463B1B63126500B6C863 /* PlayerShot.h */,
+				48E546401B684EC700B6C863 /* LTimer.cpp */,
+				48E546411B684EC700B6C863 /* LTimer.h */,
 			);
 			path = "Space Invaders";
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				48D7EA7D1B0956070041CA3E /* main.cpp in Sources */,
 				48D7EA8C1B0971F70041CA3E /* LTexture.cpp in Sources */,
 				48A3341C1B1EB24400C5B273 /* BasicEnemy.cpp in Sources */,
+				48E546421B684EC700B6C863 /* LTimer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

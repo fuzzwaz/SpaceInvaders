@@ -28,6 +28,7 @@ public:
     void updateScreen();
     void close();
     
+    LTexture* getShotTexture();
     SDL_Renderer* getRenderer();
     static GameManager* getGameManager();
     
@@ -40,6 +41,7 @@ private:
     LTexture shipTexture;               //Scene texture
     LTexture enemyTexture;
     LTexture blockTexture;
+    LTexture* shotTexture;
     PlayerShip* mainShip;
     Block blocks[4];
     BasicEnemy bEnemy[22];

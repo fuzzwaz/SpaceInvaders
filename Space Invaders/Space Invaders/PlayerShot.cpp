@@ -10,27 +10,42 @@
 
 PlayerShot::PlayerShot()
 {
-    
+    lifeTime.start();
 }
 
-//void PlayerShot::setTexture(LTexture *shotTexture)
-//{
-//    texture = blockyTexture;
-//}
-//
-//void PlayerShot::setPos(int xPosition, int yPosition)
-//{
-//    xPos = xPosition;
-//    yPos = yPosition;
-//}
-//
-//void PlayerShot::render()
-//{
-//    SDL_Rect* test_Rectangle = new SDL_Rect;
-//    test_Rectangle->x = 0;
-//    test_Rectangle->y = 0;
-//    test_Rectangle->w = 144;
-//    test_Rectangle->h = 108;
-//    
-//    texture->render(xPos, yPos, test_Rectangle);
-//}
+void PlayerShot::setTexture(LTexture *shotTexture)
+{
+    texture = shotTexture;
+}
+
+void PlayerShot::setPos(int xPosition, int yPosition)
+{
+    xPos = xPosition;
+    yPos = yPosition;
+}
+
+void PlayerShot::render()
+{
+    SDL_Rect* test_Rectangle = new SDL_Rect;
+    test_Rectangle->x = 0;
+    test_Rectangle->y = 0;
+    test_Rectangle->w = 4;
+    test_Rectangle->h = 16;
+    
+    texture->render(xPos, yPos, test_Rectangle);
+}
+
+float PlayerShot::getTime()
+{
+    return (lifeTime.getTicks() / 1000);
+}
+
+int PlayerShot::getXPost()
+{
+    return xPos;
+}
+
+int PlayerShot::getYPos()
+{
+    return yPos;
+}

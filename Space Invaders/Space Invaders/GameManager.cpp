@@ -79,9 +79,12 @@ bool GameManager::init()
                     success = false;
                 }
                 
+                shotTexture = new LTexture();
+                
                 shipTexture.setRenderer(gRenderer);
                 enemyTexture.setRenderer(gRenderer);
                 blockTexture.setRenderer(gRenderer);
+                shotTexture->setRenderer(gRenderer);
             }
         }
     }
@@ -91,6 +94,10 @@ bool GameManager::init()
         {
             loadLevelOne();
             return true;
+        }
+        else
+        {
+            return false;
         }
         
     }
@@ -121,6 +128,11 @@ bool GameManager::loadMedia()
         success = false;
     }
     
+    if ( !shotTexture->loadFromFile( "player/Player_Shot.png" ) ) {
+        printf( "Failed to load shot texture!\n" );
+        success = false;
+    }
+    
     return success;
     
 }
@@ -138,13 +150,13 @@ void GameManager::updatePosition()
 void GameManager::renderObjects()
 {
     mainShip->render();
+    mainShip->renderObjects();
     for (int i = 0; i < 22; i++) {
         bEnemy[i].render();
     }
     for (int i = 0; i < 4; i++) {
         blocks[i].render();
     }
-    
 }
 
 void GameManager::clearScreen()
@@ -197,6 +209,11 @@ void GameManager::close()
     //Quit SDL subsystems
     IMG_Quit();
     SDL_Quit();
+}
+
+LTexture* GameManager::getShotTexture()
+{
+    return shotTexture;
 }
 
 SDL_Renderer* GameManager::getRenderer()
