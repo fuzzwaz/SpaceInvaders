@@ -8,6 +8,8 @@
 
 
 #include "GameManager.h"
+#include "PlayerShot.h"
+#include <iostream>
 
 GameManager::GameManager()
 {
@@ -142,15 +144,51 @@ void GameManager::handleEvent(SDL_Event e)
     mainShip->handleEvent(e);
 }
 
+void GameManager::handleCEvent(CEvent e, int information)
+{
+    if (e == CEvent::SHOOT)
+    {
+        PlayerShot* newShot = new PlayerShot();
+        newShot->setTexture(getShotTexture());
+        newShot->setPos(mainShip->getXPos() + (mainShip->getWidth()/ 2), mainShip->getYPos() - 25);
+        shots.push_back(newShot);
+    }
+    else if (e == CEvent::DESTROY_SHOT)
+    {
+        for (int i = 0; i < shots.size(); i++) {
+            if (!shots[i]->isActive()) {
+                delete shots[i];
+                shots.erase(shots.begin() + i);
+            }
+        }
+    }
+}
+
 void GameManager::updatePosition()
 {
     mainShip->move();
+    
+    if (shots.size() != 0)
+    {
+        for (int i = 0; i < shots.size(); i++) {
+            shots[i]->setPos(shots[i]->getXPos(), shots[i]->getYPos() - 8);
+            shots[i]->checkTimer();
+            //std::cout<<shots[i]->getXPos()<<" , "<<shots[i]->getYPos()<<std::endl;
+        }
+    }
 }
 
 void GameManager::renderObjects()
 {
     mainShip->render();
-    mainShip->renderObjects();
+    
+    if (shots.size() != 0)
+    {
+        for (int i = 0; i < shots.size(); i++) {
+            shots[i]->render();
+        }
+    }
+    
     for (int i = 0; i < 22; i++) {
         bEnemy[i].render();
     }
@@ -193,6 +231,36 @@ void GameManager::loadLevelOne()
     blocks[2].setPos(blockInitPos - blockDiff, SCREEN_HEIGHT - 200);
     blocks[1].setPos(blockInitPos + blockDiff, SCREEN_HEIGHT - 200);
     blocks[3].setPos(blockInitPos + blockDiff*2, SCREEN_HEIGHT - 200);
+    
+    blockRange[0] = blocks[0].getY() + blocks[0].getHeight();
+    blockRange[1] = blocks[0].getY();
+    
+    row1Range[0] = bEnemy[0].getY() + bEnemy[0].getHeight();
+    row1Range[1] = bEnemy[0].getY();
+    
+    row2Range[0] = bEnemy[11].getY() + bEnemy[11].getHeight();
+    row2Range[1] = bEnemy[11].getY();
+}
+
+void GameManager::checkCollisions()
+{
+    if (shots.size() > 0)
+    {
+        for (int i = 0; i < shots.size(); i++) {
+            if (shots[i]->getYPos() < blockRange[0] && shots[i]->getYPos() > blockRange[1])
+            {
+                //in collision range;
+                for (int j = 0; j < 4; j++)
+                {
+                    int x = shots[i]->getXPos();
+                    if (x > blocks[j].getX() && x < (blocks[j].getX() + blocks[j].getWidth()))
+                    {
+                        shots[i]->deactivateShot();
+                    }
+                }
+            }
+        }
+    }
 }
 
 void GameManager::close()

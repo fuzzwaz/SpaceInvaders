@@ -10,7 +10,7 @@
 #define Space_Invaders_PlayerShip_h
 
 #include "LTexture.h"
-#include "vector"
+#include "CEvent.h"
 
 class GameManager;
 class PlayerShot;
@@ -31,16 +31,14 @@ public:
     void move();
     void render();
     
-    void renderObjects();
-    
     void setGameManager(GameManager*);
     GameManager* getGameManager();
     
     int getWidth();
     int getHeight();
+    int getXPos();
+    int getYPos();
 private:
-    void shoot();
-    
     int lives = 3;
     int shipWidth = 80;
     int shipHeight = 40;
@@ -51,7 +49,6 @@ private:
     
     GameManager* gameManager;
     
-    std::vector<PlayerShot*> shots;
 };
 
 #endif

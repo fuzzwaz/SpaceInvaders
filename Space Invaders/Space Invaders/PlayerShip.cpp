@@ -50,7 +50,9 @@ void PlayerShip::handleEvent(SDL_Event& e)
             case SDLK_RIGHT: mVelX += velocity; break;
             case SDLK_a: mVelX -= velocity; break;
             case SDLK_d: mVelX += velocity; break;
-            case SDLK_SPACE: shoot();break;
+            case SDLK_SPACE:
+                gameManager->handleCEvent(CEvent::SHOOT);
+                break;
         }
     }
     //If a key was released
@@ -66,40 +68,11 @@ void PlayerShip::handleEvent(SDL_Event& e)
     }
 }
 
-void PlayerShip::shoot()
-{
-    PlayerShot* newShot = new PlayerShot();
-    newShot->setTexture(gameManager->getShotTexture());
-    newShot->setPos(mPosX + (shipWidth / 2), mPosY - 25);
-    shots.push_back(newShot);
-}
-
 void PlayerShip::move()
 {
     //Move the ship left or right
     mPosX += mVelX;
     
-    if (shots.size() != 0)
-    {
-        for (int i = 0; i < shots.size(); i++) {
-            shots[i]->setPos(shots[i]->getXPost(), shots[i]->getYPos() - 8);
-        }
-    }
-    
-}
-
-void PlayerShip::renderObjects()
-{
-    if (shots.size() != 0)
-    {
-        for (int i = 0; i < shots.size(); i++) {
-            if (shots[i]->getTime() > 5.0f) {
-                delete shots[i];
-                shots.erase(shots.begin() + i);
-            }
-            shots[i]->render();
-        }
-    }
 }
 
 void PlayerShip::render()
@@ -121,6 +94,26 @@ void PlayerShip::setGameManager(GameManager* thisGM)
 GameManager* PlayerShip::getGameManager()
 {
     return gameManager;
+}
+
+int PlayerShip::getHeight()
+{
+    return shipHeight;
+}
+
+int PlayerShip::getWidth()
+{
+    return shipWidth;
+}
+
+int PlayerShip::getXPos()
+{
+    return mPosX;
+}
+
+int PlayerShip::getYPos()
+{
+    return mPosY;
 }
 
 PlayerShip::~PlayerShip()

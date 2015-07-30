@@ -14,6 +14,8 @@ Block::Block()
     texture = NULL;
     xPos = 0;
     yPos = 0;
+    width = 144;
+    height = 108;
 }
 
 void Block::setTexture(LTexture *blockyTexture)
@@ -32,8 +34,28 @@ void Block::render()
     SDL_Rect* test_Rectangle = new SDL_Rect;
     test_Rectangle->x = 0;
     test_Rectangle->y = 0;
-    test_Rectangle->w = 144;
-    test_Rectangle->h = 108;
+    test_Rectangle->w = width;
+    test_Rectangle->h = height;
     
     texture->render(xPos, yPos, test_Rectangle);
+}
+
+int Block::getWidth()
+{
+    return width;
+}
+
+int Block::getHeight()
+{
+    return height;
+}
+
+int Block::getX()
+{
+    return xPos;
+}
+
+int Block::getY()
+{
+    return yPos;
 }

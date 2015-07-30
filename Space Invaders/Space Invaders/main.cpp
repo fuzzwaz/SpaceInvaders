@@ -71,7 +71,9 @@ int main( int argc, char* args[] )
                 avgFPS = 0;
             }
             
-            std::cout<<avgFPS<<std::endl;
+            //std::cout<<avgFPS<<std::endl;
+            
+            mainGame->checkCollisions();
             
             mainGame->updatePosition();
 

@@ -7,8 +7,10 @@
 //
 
 #include "PlayerShot.h"
+#include "GameManager.h"
+#include "CEvent.h"
 
-PlayerShot::PlayerShot()
+PlayerShot::PlayerShot() :active(true)
 {
     lifeTime.start();
 }
@@ -16,6 +18,25 @@ PlayerShot::PlayerShot()
 void PlayerShot::setTexture(LTexture *shotTexture)
 {
     texture = shotTexture;
+}
+
+void PlayerShot::checkTimer()
+{
+    if (getTime() >= 1.5)
+    {
+        deactivateShot();
+    }
+}
+
+void PlayerShot::deactivateShot()
+{
+    (GameManager::getGameManager())->handleCEvent(CEvent::DESTROY_SHOT);
+    active = false;
+}
+
+bool PlayerShot::isActive()
+{
+    return active;
 }
 
 void PlayerShot::setPos(int xPosition, int yPosition)
@@ -40,7 +61,7 @@ float PlayerShot::getTime()
     return (lifeTime.getTicks() / 1000);
 }
 
-int PlayerShot::getXPost()
+int PlayerShot::getXPos()
 {
     return xPos;
 }

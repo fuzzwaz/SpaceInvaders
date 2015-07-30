@@ -16,8 +16,13 @@ class BasicEnemy : public Enemy
 public:
     BasicEnemy();
     void render();
-private:
     
+    int getWidth();
+    int getHeight();
+    int getX();
+    int getY();
+private:
+    int width, height;
     
 };
 
