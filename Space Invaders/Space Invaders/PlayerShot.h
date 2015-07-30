@@ -19,14 +19,18 @@ public:
     void setTexture (LTexture* shotTexture);
     void setPos(int xPosition, int yPosition);
     void render();
+    void checkTimer();
+    void deactivateShot();
     
-    int getXPost();
+    bool isActive();
+    int getXPos();
     int getYPos();
     float getTime();
 protected:
     LTexture* texture;
     LTimer lifeTime;
     int xPos, yPos;
+    bool active;
 };
 
 #endif /* defined(__Space_Invaders__PlayerShot__) */

@@ -12,6 +12,8 @@
 #include "PlayerShip.h"
 #include "BasicEnemy.h"
 #include "Block.h"
+#include "CEvent.h"
+#include "vector"
 
 class GameManager
 {
@@ -22,11 +24,13 @@ public:
     
     void loadLevelOne();
     void handleEvent(SDL_Event e);
+    void handleCEvent(CEvent e, int = -1);
     void updatePosition();
     void renderObjects();
     void clearScreen();
     void updateScreen();
     void close();
+    void checkCollisions();
     
     LTexture* getShotTexture();
     SDL_Renderer* getRenderer();
@@ -45,6 +49,11 @@ private:
     PlayerShip* mainShip;
     Block blocks[4];
     BasicEnemy bEnemy[22];
+    std::vector<PlayerShot*> shots;
+    
+    int blockRange[2];
+    int row1Range[2];
+    int row2Range[2];
     
     static GameManager* gameManager;
 

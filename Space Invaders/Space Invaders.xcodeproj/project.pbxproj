@@ -41,6 +41,7 @@
 		48A3341B1B1EB24400C5B273 /* BasicEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicEnemy.h; sourceTree = "<group>"; };
 		48A334201B2148B900C5B273 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		48A334211B2148B900C5B273 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		48D3FF231B69830E0001E473 /* CEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEvent.h; sourceTree = "<group>"; };
 		48D7EA791B0956070041CA3E /* Space Invaders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Space Invaders"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D7EA7C1B0956070041CA3E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		48D7EA831B0958BB0041CA3E /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 				48E5463B1B63126500B6C863 /* PlayerShot.h */,
 				48E546401B684EC700B6C863 /* LTimer.cpp */,
 				48E546411B684EC700B6C863 /* LTimer.h */,
+				48D3FF231B69830E0001E473 /* CEvent.h */,
 			);
 			path = "Space Invaders";
 			sourceTree = "<group>";

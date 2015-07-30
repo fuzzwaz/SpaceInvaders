@@ -20,9 +20,15 @@ public:
     void setTexture (LTexture* blockyTexture);
     void setPos(int xPosition, int yPosition);
     void render();
+    
+    int getWidth();
+    int getHeight();
+    int getX();
+    int getY();
 protected:
     LTexture* texture;
     int xPos, yPos;
+    int width, height;
 };
 
 #endif /* defined(__Space_Invaders__Block__) */
